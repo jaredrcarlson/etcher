@@ -45,14 +45,15 @@ const SelectImageButton = props => {
             {shared.bytesToClosestUnit(props.imageSize)}
           </DetailsText>
           { props.flashing ?
-            null
-            :
+          ( null ) :
+          (
             <ChangeButton
               plaintext
               onClick={props.reselectImage}
             >
               Change
             </ChangeButton>
+          )
           }
         </StepSelection>
       </Provider>
@@ -69,11 +70,11 @@ const SelectImageButton = props => {
             Select image
           </StepButton>
           <Footer>
-            { props.mainSupportedExtensions.join(', ') }, and
+            { props.mainSupportedExtensions.join(', ') }, and{' '}
             <Underline
               tooltip={ props.extraSupportedExtensions.join(', ') }
             >
-              {' '}others
+              others
             </Underline>
           </Footer>
         </StepSelection>
